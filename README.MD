@@ -1,5 +1,3 @@
-Here's an enhanced version of the `README.md` file, incorporating additional best practices, clarity, and conciseness:
-
 **Ai Jira Standup Report API**
 ==========================
 
@@ -84,5 +82,5 @@ Automate daily scrum reports from Jira data with our Ai-powered API. This projec
 **<a name="contact"></a>Contact**
 ----------
 
-* **Development Team**: [https://nikunj.tech/]
+* **Developer**: https://nikunj.tech/
 * **GitHub Issues**: For all project-related inquiries.
