@@ -1,0 +1,13 @@
+services:
+  api: &main_app
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    image: jira_report_ai_api:${JIRA_REPORT_AI_API_VERSION:-latest}
+    restart: always
+    env_file:
+      - .env
+    environment:
+      JIRA_REPORT_AI_API_HOST: 0.0.0.0
+
+

@@ -1,0 +1,203 @@
+openapi: 3.0.0
+info:
+  title: Jira Report API
+  description: API for managing daily scrum reports from Jira data
+  version: 1.0.0
+servers:
+  - url: http://localhost:3001
+    description: Local development server
+tags:
+  - name: Jira Report
+    description: Operations related to scrum report generation and scheduling
+  - name: Health
+    description: API health check
+  - name: API Info
+    description: API metadata information
+paths:
+  /api/report/set-cron-time:
+    post:
+      tags: [Scrum Report]
+      summary: Update the cron schedule time
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                cronTime:
+                  type: string
+                  example: "0 9 * * *"
+                  description: Cron schedule pattern
+              required:
+                - cronTime
+      responses:
+        200:
+          description: Cron schedule updated successfully
+          content:
+            application/json:
+              example:
+                message: "Cron schedule updated to: 0 9 * * *"
+        400:
+          description: Invalid request
+          content:
+            application/json:
+              example:
+                error: "cronTime is required"
+        500:
+          description: Server error
+          content:
+            application/json:
+              example:
+                error: "Failed to update cron schedule"
+
+  /api/report/trigger-manual:
+    post:
+      tags: [Scrum Report]
+      summary: Manually trigger report generation
+      responses:
+        200:
+          description: Report generated and sent successfully
+          content:
+            application/json:
+              example:
+                success: true
+                message: "Report generated and sent successfully"
+        500:
+          description: Server error
+          content:
+            application/json:
+              example:
+                error: "Failed to trigger manual run"
+
+  /api/report/current-schedule:
+    get:
+      tags: [Scrum Report]
+      summary: Get current cron schedule
+      responses:
+        200:
+          description: Current cron schedule
+          content:
+            application/json:
+              example:
+                schedule: "0 9 * * *"
+
+  /api/report/recent:
+    get:
+      tags: [Scrum Report]
+      summary: Get recent reports
+      description: Retrieves the 5 most recent reports if available
+      responses:
+        200:
+          description: List of recent reports
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  reports:
+                    type: array
+                    items:
+                      type: object
+                      properties:
+                        id:
+                          type: string
+                          example: "jira_report_1673987654321"
+                        subject:
+                          type: string
+                          example: "Daily Scrum Report"
+                        date:
+                          type: string
+                          format: date-time
+                          example: "2023-01-17T15:30:00.000Z"
+                        filename:
+                          type: string
+                          example: "jira_report_1673987654321.md"
+                        hasPdf:
+                          type: boolean
+                          example: true
+                        pdfFilename:
+                          type: string
+                          nullable: true
+                          example: "report_1673987654321.pdf"
+        500:
+          description: Server error
+          content:
+            application/json:
+              example:
+                error: "Failed to fetch recent reports"
+
+  /api/report/{id}:
+    get:
+      tags: [Scrum Report]
+      summary: Get specific report content
+      description: Retrieves the content of a specific report by ID
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: Report ID
+          schema:
+            type: string
+      responses:
+        200:
+          description: Report content
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  content:
+                    type: string
+                    example: "# Daily Scrum Report\n\nTeam has completed..."
+        404:
+          description: Report not found
+          content:
+            application/json:
+              example:
+                error: "Report not found"
+        500:
+          description: Server error
+          content:
+            application/json:
+              example:
+                error: "Failed to fetch report content"
+  
+  /api/health:
+    get:
+      tags: [Health]
+      summary: Check API health status
+      responses:
+        200:
+          description: API health status and current timestamp
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: "OK"
+                  timestamp:
+                    type: string
+                    format: date-time
+                    example: "2024-01-01T12:00:00.000Z"
+  
+  /api/info:
+    get:
+      tags: [API Info]
+      summary: Get API metadata
+      responses:
+        200:
+          description: API name and version
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  Name:
+                    type: string
+                    example: "Scrum Report API"
+                  Version:
+                    type: string
+                    example: "1.0.0"

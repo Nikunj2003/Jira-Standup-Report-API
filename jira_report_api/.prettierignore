@@ -1,0 +1,15 @@
+# Ignore artifacts: 
+build
+coverage
+
+# Ignore all dotenvs
+.env.*
+.env
+
+# Ignore lock files
+package-lock.json
+yarn.lock
+
+# Ignore node_modules and public folders
+node_modules
+public

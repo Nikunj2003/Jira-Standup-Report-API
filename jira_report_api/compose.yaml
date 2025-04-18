@@ -1,0 +1,13 @@
+services:
+  stitch-api:
+    build:
+      context: .
+      dockerfile: Dockerfile  # Use the Dockerfile in the current directory
+    container_name: jira_report_api_container  # Name the container
+    ports:
+      - "3010:3010"  # Expose port 8000 on the host
+    volumes:
+      - .:/app       # Mount the current directory into the container
+    environment:
+      - NODE_ENV=development   # Set environment variables (optional)
+    restart: unless-stopped   # Restart the container unless it is manually stopped

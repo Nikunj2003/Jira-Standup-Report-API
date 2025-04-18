@@ -1,0 +1,122 @@
+.
+    ├── docker-compose.yml
+    │   jira_report_ai_api/
+    │       ├── Dockerfile
+    │       ├── README.md
+    │       │   deploy/
+    │       │       └── docker-compose.dev.yml
+    │       ├── docker-compose.yml
+    │       │   jira_report_ai_api/
+    │       │       ├── __init__.py
+    │       │       ├── __main__.py
+    │       │       │   __pycache__/
+    │       │       │       ├── __init__.cpython-312.pyc
+    │       │       │       ├── __main__.cpython-312.pyc
+    │       │       │       ├── gunicorn_runner.cpython-312.pyc
+    │       │       │       ├── log.cpython-312.pyc
+    │       │       │       └── settings.cpython-312.pyc
+    │       │       ├── log.py
+    │       │       │   services/
+    │       │       │       ├── __init__.py
+    │       │       │       │   __pycache__/
+    │       │       │       │       ├── __init__.cpython-312.pyc
+    │       │       │       │       ├── ai_service.cpython-312.pyc
+    │       │       │       │       └── exceptions.cpython-312.pyc
+    │       │       │       ├── ai_service.py
+    │       │       │       └── exceptions.py
+    │       │       ├── settings.py
+    │       │       │   static/
+    │       │       │           docs/
+    │       │       │               ├── redoc.standalone.js
+    │       │       │               ├── swagger-ui-bundle.js
+    │       │       │               └── swagger-ui.css
+    │       │           web/
+    │       │               ├── __init__.py
+    │       │               │   __pycache__/
+    │       │               │       ├── __init__.cpython-312.pyc
+    │       │               │       ├── application.cpython-312.pyc
+    │       │               │       └── lifespan.cpython-312.pyc
+    │       │               │   api/
+    │       │               │       ├── __init__.py
+    │       │               │       │   __pycache__/
+    │       │               │       │       ├── __init__.cpython-312.pyc
+    │       │               │       │       └── router.cpython-312.pyc
+    │       │               │       │   docs/
+    │       │               │       │       ├── __init__.py
+    │       │               │       │       │   __pycache__/
+    │       │               │       │       │       ├── __init__.cpython-312.pyc
+    │       │               │       │       │       └── views.cpython-312.pyc
+    │       │               │       │       └── views.py
+    │       │               │       │   generate_scrum_report/
+    │       │               │       │       ├── __init__.py
+    │       │               │       │       │   __pycache__/
+    │       │               │       │       │       ├── __init__.cpython-312.pyc
+    │       │               │       │       │       ├── schema.cpython-312.pyc
+    │       │               │       │       │       └── views.cpython-312.pyc
+    │       │               │       │       ├── schema.py
+    │       │               │       │       └── views.py
+    │       │               │       │   monitoring/
+    │       │               │       │       ├── __init__.py
+    │       │               │       │       │   __pycache__/
+    │       │               │       │       │       ├── __init__.cpython-312.pyc
+    │       │               │       │       │       └── views.cpython-312.pyc
+    │       │               │       │       └── views.py
+    │       │               │       └── router.py
+    │       │               ├── application.py
+    │       │               └── lifespan.py
+    │       ├── poetry.lock
+    │       ├── pyproject.toml
+    │           tests/
+    │               ├── __init__.py
+    │               │   __pycache__/
+    │               │       ├── __init__.cpython-312.pyc
+    │               │       └── test_jira_report_ai_api.cpython-312.pyc
+    │               ├── conftest.py
+    │               ├── test_echo.py
+    │               └── test_jira_report_ai_api.py
+    │   jira_report_api/
+    │       ├── Dockerfile
+    │       ├── compose.yaml
+    │       ├── eslint.config.mjs
+    │       ├── jest.config.ts
+    │       ├── nodemon.json
+    │       ├── package-lock.json
+    │       ├── package.json
+    │       │   reports/
+    │       │       └── jira_report_1741667207833.md
+    │       │   src/
+    │       │       ├── app.ts
+    │       │       │   config/
+    │       │       │       ├── env.ts
+    │       │       │       └── index.ts
+    │       │       │   controllers/
+    │       │       │       ├── api.info.controller.ts
+    │       │       │       ├── health.controller.ts
+    │       │       │       ├── index.ts
+    │       │       │       └── report.controller.ts
+    │       │       │   routers/
+    │       │       │       ├── api.info.router.ts
+    │       │       │       ├── health.router.ts
+    │       │       │       ├── index.ts
+    │       │       │       └── report.router.ts
+    │       │       │   schemas/
+    │       │       │       ├── alerting.schema.ts
+    │       │       │       ├── cron.schema.ts
+    │       │       │       ├── env.schema.ts
+    │       │       │       ├── index.ts
+    │       │       │       ├── jira.schema.ts
+    │       │       │       └── report.schema.ts
+    │       │       ├── server.ts
+    │       │       │   services/
+    │       │       │       ├── alerting.service.ts
+    │       │       │       ├── cron.service.ts
+    │       │       │       ├── index.ts
+    │       │       │       └── jira.service.ts
+    │       │           utils/
+    │       │               ├── index.ts
+    │       │               ├── logger.ts
+    │       │               └── swagger.ts
+    │       ├── swagger.yaml
+    │       ├── tsconfig.json
+    │       └── tsconfig.tsbuildinfo
+    └── project_structure.txt

@@ -1,0 +1,25 @@
+services:
+  jira-report-ai-api:
+    build:
+      context: ./jira_report_ai_api
+      target: prod
+    restart: unless-stopped
+    ports:
+      - "8000:8000"
+    environment:
+      - PYTHONDONTWRITEBYTECODE=1
+      - PYTHONUNBUFFERED=1
+    depends_on:
+      - jira-report-api
+
+  jira-report-api:
+    build:
+      context: ./jira_report_api
+      target: final
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    depends_on:
+      - jira-report-dashboard
