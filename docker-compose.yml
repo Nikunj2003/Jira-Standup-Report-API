@@ -23,3 +23,14 @@ services:
       - NODE_ENV=development
     depends_on:
       - jira-report-dashboard
+
+  jira-report-dashboard:
+    build:
+      context: ./jira-report-dashboard
+      target: production
+    restart: unless-stopped
+    ports:
+      - "8080:3000"
+    environment:
+      - NODE_ENV=production
+      - HUSKY=0

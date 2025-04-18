@@ -125,6 +125,20 @@ dist
 .yarn/build-state.yml
 .yarn/install-state.gz
 .pnp.*
+
+# **Detailed Next.js Patterns**
+.next/
+.next/build/
+.next/cache/
+.next/generated/
+.next/link-mapper/
+.next/pages/
+.next/plugins/
+.next/project-config.json
+.next/required-weak-sbi-reduced-long-readStore/
+.next/routes-manifest.json
+.next/traced-globals.json
+.next/server/chunks/
 *.zip
 *.pyc
 python_scripts/input

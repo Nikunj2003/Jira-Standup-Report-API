@@ -1,0 +1,14 @@
+services:
+  app:
+    container_name: next-app
+    build: .
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./next-static:/app/next-static
+      - ./public:/app/public
+    command: npm start
+
+volumes:
+  next-static:
+  public:
