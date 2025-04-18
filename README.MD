@@ -1,100 +1,88 @@
-# AI Jira Standup Report API
-=============================
+Here's an enhanced version of the `README.md` file, incorporating additional best practices, clarity, and conciseness:
+
+**Ai Jira Standup Report API**
+==========================
 
 **Table of Contents**
 -----------------
 
-1. [Overview](#overview)
-2. [Technology Stack](#technology-stack)
-3. [API Documentation](#api-documentation)
-4. [Endpoints Overview](#endpoints-overview)
-5. [Getting Started](#getting-started)
-6. [Contributing](#contributing)
-7. [License](#license)
+1. [**Overview**](#overview)
+2. [**Technology Stack**](#technology-stack)
+3. [**API Endpoints**](#api-endpoints)
+4. [**Deployment**](#deployment)
+5. [**Project Structure**](#project-structure)
+6. [**Contributing**](#contributing)
+7. [**Acknowledgments**](#acknowledgments)
+8. [**Contact**](#contact)
 
-## Overview
------------
-
-The AI Jira Standup Report API is designed to streamline the process of generating and managing daily scrum reports from Jira data. Leveraging AI capabilities through Nvidia NIM API, alongside Jira's robust project management features, this API automates report generation and scheduling, enhancing team productivity and efficiency.
-
-## Technology Stack
----------------------
-
-* **jira-report-ai-api**:
-	+ **Language**: Python
-	+ **Package Management**: Poetry
-	+ **AI Integration**: Nvidia NIM API
-* **jira-report-api**:
-	+ **Language**: Node.js
-	+ **Type System**: TypeScript
-
-## API Documentation
----------------------
-
-### OpenAPI Specification
-
-For detailed API documentation, including request/response schemas, endpoints, and examples, please refer to our [OpenAPI Specification](https://raw.githubusercontent.com/[YourUsername]/AI-Jira-Standup-Report-API/main/openapi.yaml).
-
-**Highlighted Endpoints:**
-
-* **Scrum Report**
-	+ `POST /api/report/set-cron-time` - Update the cron schedule time
-	+ `POST /api/report/trigger-manual` - Manually trigger report generation
-	+ `GET /api/report/current-schedule` - Get current cron schedule
-	+ `GET /api/report/recent` - Get recent reports
-	+ `GET /api/report/{id}` - Get specific report content
-* **Health & Info**
-	+ `GET /api/health` - Check API health status
-	+ `GET /api/info` - Get API metadata
-
-## Endpoints Overview
----------------------
-
-### Scrum Report Endpoints
-
-| Endpoint | Method | Description |
-|---|---|---|
-| `/api/report/set-cron-time` | `POST` | Update cron schedule |
-| `/api/report/trigger-manual` | `POST` | Manually generate report |
-| `/api/report/current-schedule` | `GET` | Retrieve current schedule |
-| `/api/report/recent` | `GET` | Fetch recent reports |
-| `/api/report/{id}` | `GET` | Retrieve a report by ID |
-
-### Health & Info Endpoints
-
-| Endpoint | Method | Description |
-|---|---|---|
-| `/api/health` | `GET` | Check API health |
-| `/api/info` | `GET` | Retrieve API metadata |
-
-## Getting Started
+**<a name="overview"></a>Overview**
 ---------------
 
-1. **Clone the Repository**:
-   ```bash
-   git clone https://github.com/[YourUsername]/AI-Jira-Standup-Report-API.git
-   ```
-2. **Navigate to the Project Directory**:
-   ```bash
-   cd AI-Jira-Standup-Report-API
-   ```
-3. **Setup `jira-report-ai-api` (Python)**:
-   - Install Poetry if you haven't already: https://python-poetry.org/docs/#installation
-   - Activate your virtual environment (if using)
-   - Run `poetry install` to install dependencies
-4. **Setup `jira-report-api` (Node.js/TypeScript)**:
-   - Ensure you have Node.js and npm installed: https://nodejs.org/en/download/
-   - Run `npm install` to install dependencies
-5. **Configure Environment Variables**:
-   - For Jira API integration and Nvidia NIM API, configure the respective environment variables as outlined in the project's `.env.example` files.
+Automate daily scrum reports from Jira data with our Ai-powered API. This project comprises two interconnected APIs:
 
-## Contributing
+* **`jira-report-ai-api`**: Leverages Python, Poetry, and Nvidia's NIM API for AI-driven insights.
+* **`jira-report-api`**: Built with Node.js and TypeScript for a robust API gateway.
+
+**<a name="technology-stack"></a>Technology Stack**
+--------------------
+
+| **Component** | **Technologies** |
+| --- | --- |
+| **`jira-report-ai-api`** | Python, Poetry, Nvidia NIM API |
+| **`jira-report-api`** | Node.js, TypeScript |
+
+**<a name="api-endpoints"></a>API Endpoints**
+-----------------
+
+### **Scrum Report**
+
+| **Endpoint** | **Method** | **Description** |
+| --- | --- | --- |
+| `/api/report/set-cron-time` | `POST` | Update cron schedule for automated reports. |
+| `/api/report/trigger-manual` | `POST` | Manually trigger report generation and sending. |
+| `/api(report/current-schedule` | `GET` | Retrieve current cron schedule setup. |
+| `/api/report/recent` | `GET` | Fetch up to 5 recent reports. |
+| `/api/report/{id}` | `GET` | Retrieve a specific report by ID. |
+
+### **Health and Info**
+
+| **Endpoint** | **Method** | **Description** |
+| --- | --- | --- |
+| `/api/health` | `GET` | Check API health status and timestamp. |
+| `/api/info` | `GET` | Fetch API metadata (name and version). |
+
+**<a name="deployment"></a>Deployment**
+--------------
+
+* **Containerization**: Utilize `docker-compose.yml` files in the root and component directories for streamlined deployment.
+* **Service Configuration**: Refer to each API's `docker-compose.yml` for specific service setups.
+
+**<a name="project-structure"></a>Project Structure**
+---------------------
+
+* **Detailed Overview**: Available in `project_structure.txt`.
+* **Key Directories**:
+	+ `jira_report_ai_api/`: Python-based AI API.
+	+ `jira_report_api/`: Node.js-based API gateway.
+	+ `tests/`: Unit and integration tests for both APIs.
+
+**<a name="contributing"></a>Contributing**
 ------------
 
-Contributions are what make the open-source community such an amazing place to learn, inspire, and create. Any contributions you make are **greatly appreciated**.
+1. **Review** our contributing guidelines.
+2. **Ensure Dependencies are Up-to-Date**:
+	* `jira-report-ai-api/`: Run `poetry update`.
+	* `jira-report-api/`: Run `npm install`.
+3. **Open a GitHub Issue** for questions, feature requests, or to report issues.
 
-1. Fork the Project
-2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your Changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the Branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
+**<a name="acknowledgments"></a>Acknowledgments**
+------------------
+
+* **Nvidia NIM API**: For enabling AI capabilities.
+* **Jira**: For providing the platform powering our report generation.
+
+**<a name="contact"></a>Contact**
+----------
+
+* **Development Team**: [https://nikunj.tech/]
+* **GitHub Issues**: For all project-related inquiries.
